@@ -1,0 +1,18 @@
+package WebDriverSample;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class GmailLogin {
+	public static void main(String [] args) {
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+		WebDriver abcd = new FirefoxDriver(); 
+		abcd.get("https://www.google.com");
+		String URL = abcd.getCurrentUrl();
+		System.out.println(URL);
+		abcd.navigate().to("https://www.yahoo.com");
+		URL = abcd.getCurrentUrl();
+		System.out.println(URL);
+    }
+  }
