@@ -1,0 +1,19 @@
+//Launch Firefox browser, navigate to Google home page, Capture the URL and Display!
+package WebDriverSample;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class GetBrowserTitle {
+	public static void main(String [] args) {
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+        WebDriver driver = new FirefoxDriver();//Launches firefox browser with blank page
+        driver.get("https://www.google.com");
+	    driver.findElement(By.linkText("Gmail")).click();
+	    
+	    
+	    driver.close(); //Closes the browser
+	}
+
+}
