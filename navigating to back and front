@@ -1,0 +1,26 @@
+package WebDrivers;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class example1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("https://www.google.com");
+        driver.navigate().to("https://www.yahoo.com");
+        System.out.println(driver.getCurrentUrl());
+        
+        driver.navigate().back();
+        System.out.println(driver.getCurrentUrl());
+        
+        driver.navigate().forward();
+        System.out.println(driver.getCurrentUrl());
+        
+        driver.manage().window().maximize();
+        driver.close();
+	}
+
+}
