@@ -1,0 +1,26 @@
+package WebDrivers;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class example1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://www.rediff.com");
+        driver.findElement(By.xpath(".//*[@id='signin_info']/a[1]")).click();
+        driver.findElement(By.name("proceed")).click();
+        
+        Alert alert = driver.switchTo().alert();
+        String errorMessage = alert.getText();
+        System.out.println(errorMessage);
+        
+        alert.accept();//clicks OK button on popup message
+        driver.findElement(By.id("login1")).sendKeys("rambabu");
+	
+	}
+}
