@@ -1,0 +1,59 @@
+package WebDrivers;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class example1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("https://www.gmail.com");
+        WebElement abcd = driver.findElement(By.xpath(".//*[@id='identifierId']"));
+        abcd.sendKeys("ramvuppari");
+        //Return type of the object
+        abcd.getAttribute("type"); 
+        
+        //Return the value
+        String aaa = abcd.getText();
+        System.out.println(aaa);
+        
+        //return the displayed status
+        System.out.println(abcd.isDisplayed());//true
+        
+        //return the enabled status
+        System.out.println(abcd.isEnabled());//true
+        
+        //clearing the value
+        abcd.clear();
+
+        
+        //finding Edit box using id locator
+        //driver.findElement(By.id("identifierId")).sendKeys("###");
+        //finding Edit box using name locator
+        //driver.findElement(By.name("identifier")).sendKeys("***");
+        //finding Edit box using tagName locator
+        //driver.findElement(By.tagName("input")).sendKeys("ramvuppari");
+        //finding Edit box using CSS locator
+        //driver.findElement(By.cssSelector("#identifierId")).sendKeys("ramvuppari");
+        //finding Edit box using xpath locator
+        //driver.findElement(By.xpath(".//*[@id='identifierId']")).sendKeys("ramvuppari");
+        Thread.sleep(5000);
+        
+        //Return Type of object
+        //driver.findElement(By.xpath(".//*[@id='identifierId']")).getAttribute("type");
+
+        //clearing the value
+        //driver.findElement(By.xpath(".//*[@id='identifierId']")).clear();
+
+        
+
+        
+        
+        //driver.close();
+	}
+
+}
