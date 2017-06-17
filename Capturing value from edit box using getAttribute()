@@ -1,0 +1,19 @@
+package WebDrivers;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class handlingElements {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("https://www.gmail.com");
+        driver.findElement(By.id("identifierId")).sendKeys("ramvuppari");
+        System.out.println(driver.findElement(By.id("identifierId")).getAttribute("value"));
+        
+	}
+
+}
