@@ -1,0 +1,25 @@
+package WebDrivers;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class handlingElements {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("https://www.google.com");
+        System.out.println(driver.findElement(By.id("hplogo")).isDisplayed());//true
+       // System.out.println(driver.findElement(By.tagName("a")).getAttribute("title"));
+        
+        driver.navigate().to("http://newtours.demoaut.com/");
+        driver.findElement(By.name("login")).click();
+        
+        driver.navigate().to("http://www.seleniumhq.org/");
+        driver.findElement(By.xpath(".//*[@id='choice']/tbody/tr/td[2]/center/a/img")).click();
+        
+	}
+
+}
