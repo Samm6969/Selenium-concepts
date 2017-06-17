@@ -1,0 +1,32 @@
+package WebDrivers;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class example1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://academic.missouriwestern.edu/graduate/wiki/index.php?title=Graduate_Faculty_List");
+        System.out.println(driver.findElement(By.xpath(".//*[@id='mw-content-text']/table/tbody/tr[7]/td[1]")).getText());
+        //System.out.println(s);
+        WebElement xxx = driver.findElement(By.id("bodyContent"));
+        
+        List<WebElement> rows = xxx.findElements(By.tagName("tr"));
+        int r = rows.size();
+        System.out.println(r);
+        
+        List<WebElement> cells = xxx.findElements(By.tagName("td"));
+        int c = cells.size();
+        System.out.println(c);
+
+        
+	}
+}
