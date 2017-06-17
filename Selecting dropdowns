@@ -1,0 +1,20 @@
+package WebDrivers;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class example1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("https://login.yahoo.com/account/create?specId=yidReg&lang=en-US&src=fpctx&done=https%3A%2F%2Fwww.yahoo.com&display=login&intl=us");
+        Select dropDown = new Select(driver.findElement(By.id("usernamereg-month")));
+        dropDown.selectByIndex(2);
+        dropDown.selectByVisibleText("March");
+        
+	}
+}
