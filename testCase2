@@ -1,0 +1,25 @@
+package WebDrivers;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class testCase2 {
+
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.google.com/");
+		boolean sss = driver.findElement(By.linkText("Gmail")).isDisplayed();
+		
+		if(sss==true) {
+			System.out.println("Gmail link exists - passed!");
+		}else {
+			System.out.println("Gmail link does not exist - failed!");
+		}
+
+	}
+
+}
