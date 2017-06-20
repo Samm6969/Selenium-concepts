@@ -1,0 +1,29 @@
+package WebDrivers;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class crosssBrowser {
+
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","/home/ram/Downloads/chromedriver");
+        WebDriver driver = new ChromeDriver();//launches to blank browser
+        driver.get("http://www.google.com");
+        
+        String titleName = driver.getTitle();
+        System.out.println(titleName);
+        
+        if(titleName.equals("Google"))
+        {
+        	System.out.println("Google page launched - Success!");
+        } else {
+        	System.out.println("Google page did not launch - Failed!");
+        }
+		
+        driver.close();
+
+	}
+
+}
