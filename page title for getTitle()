@@ -1,0 +1,29 @@
+package WebDrivers;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class crosssBrowser {
+
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+        WebDriver driver = new FirefoxDriver();//launches to blank browser
+        driver.get("http://www.google.com");
+        
+        String titleName = driver.getTitle();
+        System.out.println(titleName);
+        
+        if(titleName.equals("Google"))
+        {
+        	System.out.println("Google page launched - Success!");
+        } else {
+        	System.out.println("Google page did not launch - Failed!");
+        }
+		
+        driver.close();
+
+	}
+
+}
