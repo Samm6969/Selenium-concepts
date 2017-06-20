@@ -1,0 +1,50 @@
+package WebDrivers;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+public class crosssBrowser {
+	public static WebDriver driver;
+    public static int browsers;
+    public static String browserName;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		for(browsers = 1;browsers<=3;browsers++ )
+		{
+			if(browsers == 1)
+			{
+				System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+		        driver = new FirefoxDriver();
+		        browserName = "Mozilla firefox Browser!";
+			}else if(browsers == 2) {
+				System.setProperty("webdriver.chrome.driver","/home/ram/seleniumGecko/chromedrive");
+				driver = new ChromeDriver();
+				browserName = "Google Chrome Browser!";
+			}else if(browsers == 3) {
+				System.setProperty("webdriver.ie.driver","/home/ram/seleniumGecko/IEDriverServer.exe");
+                driver = new InternetExplorerDriver();
+                browserName = "Internet Explorer Browser";
+			}
+	        driver.get("http://www.google.com");
+	        
+	        String titleName = driver.getTitle();
+	        System.out.println(titleName);
+	        
+	        if(titleName.equals("Google"))
+	        {
+	        	System.out.println(browserName + " -Google page launched - Success!");
+	        } else {
+	        	System.out.println(browserName + " -Google page did not launch - Failed!");
+	        }
+			
+	        driver.close();
+		}
+
+			
+	}
+
+}
