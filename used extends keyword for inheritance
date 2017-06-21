@@ -1,0 +1,25 @@
+package WebDrivers;
+
+import org.openqa.selenium.By;
+
+public class methodsTestCase1 extends Methods {
+
+
+	public static void main(String[] args) {
+		//Redirect to user interface from admin interface
+		//creating object or instance
+		methodsTestCase1 mtc1 = new methodsTestCase1();
+		mtc1.launchBrowser();
+		mtc1.adminLogin();
+		driver.findElement(By.linkText("Online Catalog")).click();
+		String url = driver.getCurrentUrl();
+		
+		if(url.equals("http://www.gcrit.com/build3/")) {
+			System.out.println("passed");
+		} else {
+			System.out.println("failed");
+		}
+		mtc1.closeBrowser();
+	}
+
+}
