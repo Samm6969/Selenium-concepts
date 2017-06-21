@@ -1,0 +1,23 @@
+package WebDrivers;
+
+public class methodTestCase2 extends Methods {
+
+	public static void main(String[] args) {
+		//TestCase: admin login functionality with valid inputs(positive testCase)
+		//creating object or instance
+		
+		methodTestCase2 mtc2 = new methodTestCase2();
+		mtc2.launchBrowser();
+		mtc2.adminLogin();
+		String url = driver.getCurrentUrl();
+		
+		if(url.contains("http://www.gcrit.com/build3/admin/index.php")){
+			System.out.println("admin login successfull - testPassed");
+		} else {
+			System.out.println("testFailed");
+		}
+		mtc2.closeBrowser();
+
+	}
+
+}
