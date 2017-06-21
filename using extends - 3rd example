@@ -1,0 +1,26 @@
+package WebDrivers;
+
+import org.openqa.selenium.By;
+
+public class methodTestCase3 extends Methods {
+
+	public static void main(String[] args) {
+		////TestCase: admin login functionality with valid inputs(positive testCase)
+		//creating object or instance
+		
+		methodTestCase3 mtc3 = new methodTestCase3();
+		mtc3.launchBrowser();
+		mtc3.adminLogin("adminaa", "password");
+		String error = driver.findElement(By.className("messageStackError")).getText();
+		
+		if(error.contains("invalid aministration login attempt")) {
+			System.out.println("test success");
+		} else {
+			System.out.println("test failed");
+		}
+		mtc3.closeBrowser();
+		
+
+	}
+
+}
