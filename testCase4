@@ -1,0 +1,38 @@
+package WebDrivers;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class testCase4 {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://www.gcrit.com/build3/admin/");
+		driver.findElement(By.name("username")).sendKeys("admin");
+		driver.findElement(By.name("password")).sendKeys("admin@123");
+		driver.findElement(By.id("tdb1")).click();
+		String url = driver.getCurrentUrl();
+	
+		
+		if(url.contains("http://www.gcrit.com/build3/admin/login.php")) 
+		{
+			String errorSms = driver.findElement(By.className("messageStackError")).getText();
+			System.out.println(errorSms);
+			if(errorSms.contains("nvalid administrator login attempt.")) 
+			{
+				System.out.println("handled invalid inputs");
+			}
+		}else {
+			System.out.println("not handled invalid inputs");
+		}
+      
+
+	}
+
+}
