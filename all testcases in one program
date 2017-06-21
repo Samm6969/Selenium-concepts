@@ -1,0 +1,50 @@
+package WebDrivers;
+
+import org.openqa.selenium.By;
+
+public class testCaseFinal extends Methods {
+
+		public static void main(String[] args) {
+		//1)first test case
+		//creating object or instance
+			testCaseFinal tcf = new testCaseFinal();
+			tcf.launchBrowser();
+			tcf.adminLogin();
+			driver.findElement(By.linkText("Online Catalog")).click();
+			String url = driver.getCurrentUrl();
+			
+			if(url.equals("http://www.gcrit.com/build3/")) {
+				System.out.println("testCase1: passed");
+			} else {
+				System.out.println("testCase1: failed");
+			}
+			tcf.closeBrowser();
+			
+		//2)second test case
+			tcf.launchBrowser();
+			tcf.adminLogin();
+			String url2 = driver.getCurrentUrl();
+			
+			if(url2.contains("http://www.gcrit.com/build3/admin/index.php")){
+				System.out.println("testcase2: admin login successfull - testPassed");
+			} else {
+				System.out.println("testCase2: testFailed");
+			}
+			tcf.closeBrowser();
+		//3)third test case
+			tcf.launchBrowser();
+			tcf.adminLogin("adminaa", "password");
+			String error = driver.findElement(By.className("messageStackError")).getText();
+			
+			if(error.contains("Error: invalid administration login attempt")) {
+				System.out.println("testCase3: test success");
+			} else {
+				System.out.println("testCase3: test failed");
+			}
+			tcf.closeBrowser();
+			
+
+
+	}
+
+}
