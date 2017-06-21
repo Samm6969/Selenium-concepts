@@ -1,0 +1,55 @@
+package WebDrivers;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.remote.DesiredCapabilities;
+
+public class Methods {
+	//public static DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+	public static WebDriver driver;
+	
+	public void launchBrowser() {
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+		driver =  new FirefoxDriver();
+	}
+	
+	public void adminLogin() {
+		/*System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+		driver =  new FirefoxDriver();
+		
+*/		driver.get("http://www.gcrit.com/build3/admin/");
+		driver.findElement(By.name("username")).sendKeys("admin");
+		driver.findElement(By.name("password")).sendKeys("admin@123");
+		driver.findElement(By.id("tdb1")).click();
+	}
+	public void adminLogin(String username, String password) {
+		/*System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+		driver =  new FirefoxDriver();
+*/		
+		driver.get("http://www.gcrit.com/build3/admin/");
+		driver.findElement(By.name("username")).sendKeys(username);
+		driver.findElement(By.name("password")).sendKeys(password);
+		driver.findElement(By.id("tdb1")).click();
+		/*String xxx = driver.toString();
+		System.out.println(xxx);
+*/	}
+	public void closeBrowser() {
+		if(! driver.toString().contains("null")){
+			driver.close();
+		}
+	}
+
+	public static void main(String[] args) {
+		Methods m1 = new Methods();
+		//System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+        m1.launchBrowser();
+		m1.adminLogin();
+		m1.closeBrowser();
+		m1.launchBrowser();
+		m1.adminLogin("admin", "admin@123");
+		m1.closeBrowser();
+		
+	}
+
+}
