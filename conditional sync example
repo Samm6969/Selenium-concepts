@@ -1,0 +1,25 @@
+package WebDrivers;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class condSyncExample {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		System.setProperty("webdriver.gecko.driver","/home/ram/seleniumGecko/geckodriver");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://www.google.com");
+        //conditional synchronization
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.findElement(By.linkText("Gmail")).click();
+        
+        
+	}
+
+}
