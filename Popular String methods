@@ -1,0 +1,33 @@
+package Learning_Selenium;
+
+public class stringExamples {
+
+	
+	public static void main(String[] args) {
+		 
+	    //literal way to define a string value	
+		String s = "this is Selenium Tutorial";
+		System.out.println(s); //print string value
+		//Different String methods 
+		s.toLowerCase();
+		s.toUpperCase();
+		s.length();
+		s.contains("is");
+		s.trim();
+		s.split(" ");
+		
+		
+		System.out.println(s.toUpperCase());
+		System.out.println(s.length());
+		
+		System.out.println(s.substring(18));
+		System.out.println(s.substring(4, 17));
+		
+		//System.out.println(s.contains("Tutorial"));
+		//System.out.println(s.trim());
+        
+		String ram[] = s.split(" ");
+		System.out.println(ram[0]);
+	}
+
+}
